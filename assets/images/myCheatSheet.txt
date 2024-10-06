@@ -26,3 +26,18 @@ const appSettings={
 const app=initializeApp (appSettings);
 const database=getDatabase(app);
 const shoppingList=ref(database,"Shpping List");
+
+
+JS 
+user script type="module" when in your script you will be using the import or export key words inside the javascript file 
+Object.keys(myObject); returns a list of keys in the object 
+Object.values(myObject); returns a list of values in the object
+Object.entries(myObject); returns a list of of keys and values list pairs in the object [key,value]
+
+CSS
+user-select:none; //helps to not select things on the screen when we are clicking quickly on the website
+icon of the website is the called favicon, you can go to favicon.io to transform your image for the website icon,
+it is a icon generator
+
+WebManifest helps extrat setup for our website
+
