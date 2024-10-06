@@ -10,11 +10,16 @@ const appSettings={
 const app=initializeApp (appSettings);
 const database=getDatabase(app);
 const shoppingList=ref(database,"Shpping List");
+const input_field = document.getElementById('input-field');
+const submit_btn= document.getElementById('submit-btn');
+const shopping_list_element = document.getElementById('shopping-list');
 
 onValue(shoppingList,function (snapshot) {
-        clearShoppingListElements();
-        if (snapshot.exits()){
+        
+        if (snapshot.exists()){
+            clearShoppingListElements();
             let shoppingListArray=Object.entries(snapshot.val());
+    
             for (let i=0; i<shoppingListArray.length; i++){
                 let currentItem=shoppingListArray[i];
                 let currentItemID=currentItem[0];
@@ -23,22 +28,11 @@ onValue(shoppingList,function (snapshot) {
             }
         }
         else{
-            shopping_list_element.innerHTML='<h2>No Items here yet</h2>';
+            shopping_list_element.innerHTML='<p>No Items here yet</p>';
         }
 
     }
 )
-
-
-
-
-const input_field = document.getElementById('input-field');
-const submit_btn= document.getElementById('submit-btn');
-const shopping_list_element = document.getElementById('shopping-list');
-
-
-
-
 
 
 
@@ -48,7 +42,6 @@ const shopping_list_element = document.getElementById('shopping-list');
 submit_btn.addEventListener('click',()=>{
     const inputValue=input_field.value
     push(shoppingList,inputValue);
-    // addItemtotheShoppingListElement(inputValue);
     clearInputValue()
 
     
